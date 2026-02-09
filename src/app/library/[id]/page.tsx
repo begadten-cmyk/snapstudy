@@ -54,7 +54,7 @@ export default function RunDetailPage() {
       <div className="min-h-screen">
         <Nav />
         <main className="mx-auto max-w-[960px] px-6 py-20 text-center">
-          <p className="text-[14px] text-zinc-500 mb-4">Run not found.</p>
+          <p className="text-[14px] text-zinc-500 dark:text-zinc-400 mb-4">Run not found.</p>
           <Link href="/library">
             <Button variant="secondary">Back to Library</Button>
           </Link>
@@ -73,23 +73,23 @@ export default function RunDetailPage() {
         {/* Back + header */}
         <button
           onClick={() => router.back()}
-          className="mb-4 text-[12px] font-medium text-zinc-400 hover:text-zinc-600 transition-colors"
+          className="mb-4 text-[12px] font-medium text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
         >
           &larr; Back
         </button>
 
         <div className="flex items-start justify-between mb-8">
           <div>
-            <h1 className="text-[20px] font-semibold tracking-tight text-zinc-900">
+            <h1 className="text-[20px] font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
               {run.title}
             </h1>
-            <p className="text-[12px] text-zinc-400 mt-1">
+            <p className="text-[12px] text-zinc-400 dark:text-zinc-500 mt-1">
               {formatDate(run.createdAt)}
-              <span className="ml-2 rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-medium text-zinc-500">
+              <span className="ml-2 rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-medium text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
                 {run.mode}
               </span>
               {run.goal && (
-                <span className="ml-2 text-zinc-300">&middot; {run.goal}</span>
+                <span className="ml-2 text-zinc-300 dark:text-zinc-600">&middot; {run.goal}</span>
               )}
             </p>
           </div>
@@ -98,12 +98,12 @@ export default function RunDetailPage() {
         {/* Explanation */}
         <section className="mb-8">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-[14px] font-semibold text-zinc-900">
+            <h2 className="text-[14px] font-semibold text-zinc-900 dark:text-zinc-100">
               Explanation
             </h2>
             <CopyButton text={run.explanation} />
           </div>
-          <div className="rounded-xl border border-zinc-100 bg-white p-5 text-[13px] leading-[1.8] text-zinc-600 whitespace-pre-wrap">
+          <div className="rounded-xl border border-zinc-100 bg-white p-5 text-[13px] leading-[1.8] text-zinc-600 dark:text-zinc-400 whitespace-pre-wrap dark:border-zinc-800 dark:bg-zinc-900">
             {run.explanation}
           </div>
         </section>
@@ -111,10 +111,10 @@ export default function RunDetailPage() {
         {/* Quiz */}
         <section className="mb-8">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-[14px] font-semibold text-zinc-900">Quiz</h2>
+            <h2 className="text-[14px] font-semibold text-zinc-900 dark:text-zinc-100">Quiz</h2>
             <CopyButton text={run.quiz} label="Copy quiz" />
           </div>
-          <div className="rounded-xl border border-zinc-100 bg-white p-5 text-[13px] leading-[1.8] text-zinc-600 whitespace-pre-wrap">
+          <div className="rounded-xl border border-zinc-100 bg-white p-5 text-[13px] leading-[1.8] text-zinc-600 dark:text-zinc-400 whitespace-pre-wrap dark:border-zinc-800 dark:bg-zinc-900">
             {run.quiz}
           </div>
         </section>
@@ -123,7 +123,7 @@ export default function RunDetailPage() {
         {run.flashcards.length > 0 && (
           <section className="mb-8">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-[14px] font-semibold text-zinc-900">
+              <h2 className="text-[14px] font-semibold text-zinc-900 dark:text-zinc-100">
                 Flashcards ({run.flashcards.length})
               </h2>
               <Button
@@ -140,12 +140,12 @@ export default function RunDetailPage() {
               {run.flashcards.map((fc, i) => (
                 <div
                   key={i}
-                  className="rounded-lg border border-zinc-100 bg-white p-3"
+                  className="rounded-lg border border-zinc-100 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900"
                 >
-                  <p className="text-[12px] font-medium text-zinc-900 mb-1">
+                  <p className="text-[12px] font-medium text-zinc-900 dark:text-zinc-100 mb-1">
                     {fc.front}
                   </p>
-                  <p className="text-[12px] text-zinc-500">{fc.back}</p>
+                  <p className="text-[12px] text-zinc-500 dark:text-zinc-400">{fc.back}</p>
                 </div>
               ))}
             </div>
@@ -154,10 +154,10 @@ export default function RunDetailPage() {
 
         {/* Raw output */}
         <details className="group">
-          <summary className="cursor-pointer text-[11px] font-medium uppercase tracking-wider text-zinc-300 hover:text-zinc-500 transition-colors">
+          <summary className="cursor-pointer text-[11px] font-medium uppercase tracking-wider text-zinc-300 hover:text-zinc-500 dark:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
             Raw output
           </summary>
-          <div className="mt-3 rounded-xl border border-zinc-100 bg-white p-4 font-[family-name:var(--font-geist-mono)] text-[12px] leading-[1.75] text-zinc-500 whitespace-pre-wrap max-h-80 overflow-y-auto">
+          <div className="mt-3 rounded-xl border border-zinc-100 bg-white p-4 font-[family-name:var(--font-geist-mono)] text-[12px] leading-[1.75] text-zinc-500 dark:text-zinc-400 whitespace-pre-wrap max-h-80 overflow-y-auto dark:border-zinc-800 dark:bg-zinc-900">
             {run.rawText}
           </div>
         </details>

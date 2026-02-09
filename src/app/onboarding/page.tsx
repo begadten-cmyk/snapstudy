@@ -10,9 +10,9 @@ const steps = [
     title: "Drop any image",
     desc: "Photo of notes, textbook page, diagram, or screenshot. SnapStudy accepts any image under 8 MB.",
     visual: (
-      <div className="relative mx-auto h-28 w-40 rounded-xl border-2 border-dashed border-zinc-300 bg-white flex items-center justify-center">
+      <div className="relative mx-auto h-28 w-40 rounded-xl border-2 border-dashed border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 flex items-center justify-center">
         <div className="absolute -top-2 -right-2 h-10 w-14 rounded-lg bg-[#2754C5]/10 border border-[#2754C5]/20 rotate-6" />
-        <svg className="h-8 w-8 text-zinc-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+        <svg className="h-8 w-8 text-zinc-300 dark:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25c0 .828.672 1.5 1.5 1.5z" />
         </svg>
       </div>
@@ -26,7 +26,7 @@ const steps = [
         {[85, 100, 60, 90, 45].map((w, i) => (
           <div
             key={i}
-            className="h-2 rounded-full bg-zinc-200"
+            className="h-2 rounded-full bg-zinc-200 dark:bg-zinc-700"
             style={{ width: `${w}%` }}
           />
         ))}
@@ -42,18 +42,18 @@ const steps = [
     desc: "Download flashcards as CSV for Anki or Quizlet. Copy the quiz. Review past runs in your library.",
     visual: (
       <div className="mx-auto w-44">
-        <div className="rounded-lg border border-zinc-200 bg-white p-3 space-y-2">
+        <div className="rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 p-3 space-y-2">
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-sm bg-emerald-400/60" />
-            <div className="h-2 flex-1 rounded-full bg-zinc-200" />
+            <div className="h-2 flex-1 rounded-full bg-zinc-200 dark:bg-zinc-700" />
           </div>
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-sm bg-emerald-400/60" />
-            <div className="h-2 w-3/4 rounded-full bg-zinc-200" />
+            <div className="h-2 w-3/4 rounded-full bg-zinc-200 dark:bg-zinc-700" />
           </div>
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-sm bg-emerald-400/60" />
-            <div className="h-2 w-5/6 rounded-full bg-zinc-200" />
+            <div className="h-2 w-5/6 rounded-full bg-zinc-200 dark:bg-zinc-700" />
           </div>
         </div>
         <div className="mt-2 mx-auto w-20 h-7 rounded-md bg-[#2754C5]/10 border border-[#2754C5]/20 flex items-center justify-center">
@@ -97,7 +97,7 @@ export default function OnboardingPage() {
             <div
               key={i}
               className={`h-1 rounded-full transition-all duration-300 ${
-                i === step ? "w-6 bg-[#2754C5]" : i < step ? "w-3 bg-[#2754C5]/40" : "w-3 bg-zinc-200"
+                i === step ? "w-6 bg-[#2754C5]" : i < step ? "w-3 bg-[#2754C5]/40" : "w-3 bg-zinc-200 dark:bg-zinc-700"
               }`}
             />
           ))}
@@ -114,10 +114,10 @@ export default function OnboardingPage() {
           </div>
 
           {/* Text */}
-          <h1 className="text-[20px] font-semibold tracking-tight text-zinc-900 mb-2">
+          <h1 className="text-[20px] font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mb-2">
             {current.title}
           </h1>
-          <p className="text-[14px] leading-relaxed text-zinc-500 mb-8">
+          <p className="text-[14px] leading-relaxed text-zinc-500 dark:text-zinc-400 mb-8">
             {current.desc}
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function OnboardingPage() {
         <div className="flex items-center justify-between">
           <button
             onClick={finish}
-            className="text-[12px] font-medium text-zinc-400 hover:text-zinc-600 transition-colors"
+            className="text-[12px] font-medium text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
           >
             Skip
           </button>
@@ -136,7 +136,7 @@ export default function OnboardingPage() {
         </div>
 
         {/* Step count */}
-        <p className="mt-6 text-center text-[11px] text-zinc-300">
+        <p className="mt-6 text-center text-[11px] text-zinc-300 dark:text-zinc-600">
           {step + 1} of {steps.length}
         </p>
       </div>

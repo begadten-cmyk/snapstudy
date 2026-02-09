@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "/home", label: "Home" },
@@ -13,7 +14,7 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b border-zinc-200/60">
+    <header className="border-b border-zinc-200/60 dark:border-zinc-800/60">
       <div className="mx-auto flex h-12 max-w-[960px] items-center gap-6 px-6">
         <Link
           href="/home"
@@ -34,7 +35,7 @@ export function Nav() {
               />
             </svg>
           </div>
-          <span className="text-[13px] font-semibold tracking-tight text-zinc-900">
+          <span className="text-[13px] font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
             SnapStudy
           </span>
         </Link>
@@ -50,8 +51,8 @@ export function Nav() {
                 href={link.href}
                 className={`rounded-md px-2.5 py-1 text-[12px] font-medium transition-colors ${
                   active
-                    ? "bg-zinc-100 text-zinc-900"
-                    : "text-zinc-500 hover:text-zinc-700 hover:bg-zinc-50"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"
+                    : "text-zinc-500 hover:text-zinc-700 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-zinc-800"
                 }`}
               >
                 {link.label}
@@ -59,6 +60,10 @@ export function Nav() {
             );
           })}
         </nav>
+
+        <div className="ml-auto">
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

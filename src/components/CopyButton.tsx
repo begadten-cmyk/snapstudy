@@ -23,7 +23,7 @@ export function CopyButton({
   return (
     <button
       onClick={copy}
-      className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[12px] font-medium text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-700 ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[12px] font-medium text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200 ${className}`}
     >
       {copied ? (
         <svg className="h-3.5 w-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

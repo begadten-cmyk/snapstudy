@@ -1,6 +1,7 @@
 export const runtime = "nodejs";
 
 import { GoogleGenAI } from "@google/genai";
+import { rateLimit, getClientIp } from "@/lib/rateLimit";
 
 // ── Model IDs (update here when new versions ship) ──────────────
 const MODELS = {
@@ -11,6 +12,15 @@ const MODELS = {
 const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20 MB
 
 export async function POST(req: Request) {
+  // ── Rate limit ────────────────────────────────────────────────
+  const ip = getClientIp(req);
+  if (!rateLimit(ip)) {
+    return Response.json(
+      { error: "Rate limit exceeded. Try again in a minute." },
+      { status: 429 },
+    );
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return Response.json(

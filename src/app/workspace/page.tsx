@@ -163,7 +163,7 @@ function WorkspaceInner() {
             />
 
             <div>
-              <div className="mb-2 text-[11px] font-medium uppercase tracking-wider text-zinc-400">
+              <div className="mb-2 text-[11px] font-medium uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
                 Mode
               </div>
               <SegmentedControl
@@ -177,7 +177,7 @@ function WorkspaceInner() {
             </div>
 
             <div>
-              <div className="mb-2 text-[11px] font-medium uppercase tracking-wider text-zinc-400">
+              <div className="mb-2 text-[11px] font-medium uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
                 Focus{" "}
                 <span className="normal-case tracking-normal opacity-50">
                   optional
@@ -188,7 +188,7 @@ function WorkspaceInner() {
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
                 placeholder="e.g. calculus steps"
-                className="h-9 w-full rounded-lg border border-zinc-200 bg-transparent px-3 text-[13px] text-zinc-900 placeholder:text-zinc-300 focus:border-[#2754C5] focus:outline-none focus:ring-1 focus:ring-[#2754C5]/20"
+                className="h-9 w-full rounded-lg border border-zinc-200 bg-transparent px-3 text-[13px] text-zinc-900 placeholder:text-zinc-300 focus:border-[#2754C5] focus:outline-none focus:ring-1 focus:ring-[#2754C5]/20 dark:border-zinc-700 dark:text-zinc-100 dark:placeholder:text-zinc-600"
               />
             </div>
 
@@ -207,28 +207,28 @@ function WorkspaceInner() {
             </Button>
 
             {error && (
-              <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-700">
+              <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-700 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-300">
                 {error}
               </div>
             )}
 
             {saved && (
-              <p className="text-[11px] text-zinc-400">Saved to library.</p>
+              <p className="text-[11px] text-zinc-400 dark:text-zinc-500">Saved to library.</p>
             )}
           </div>
 
           {/* ── Right: Output ────────────────────────────── */}
-          <div className="flex min-h-[480px] flex-col overflow-hidden rounded-xl border border-zinc-100 bg-white">
+          <div className="flex min-h-[480px] flex-col overflow-hidden rounded-xl border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-zinc-900">
             {/* Tabs */}
-            <div className="flex h-10 shrink-0 items-center gap-1 border-b border-zinc-100 px-3">
+            <div className="flex h-10 shrink-0 items-center gap-1 border-b border-zinc-100 px-3 dark:border-zinc-800">
               {tabs.filter((t) => t.show).map((t) => (
                 <button
                   key={t.key}
                   onClick={() => setTab(t.key)}
                   className={`rounded-md px-2.5 py-1 text-[11px] font-medium transition-colors ${
                     tab === t.key
-                      ? "bg-zinc-100 text-zinc-900"
-                      : "text-zinc-400 hover:text-zinc-600"
+                      ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"
+                      : "text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300"
                   }`}
                 >
                   {t.label}
@@ -238,7 +238,7 @@ function WorkspaceInner() {
               {loading && (
                 <div className="ml-auto flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2754C5]" />
-                  <span className="text-[11px] text-zinc-400">Streaming</span>
+                  <span className="text-[11px] text-zinc-400 dark:text-zinc-500">Streaming</span>
                 </div>
               )}
             </div>
@@ -251,13 +251,13 @@ function WorkspaceInner() {
             >
               {/* Live output */}
               {tab === "live" && (
-                <div className="font-[family-name:var(--font-geist-mono)] text-[13px] leading-[1.75] whitespace-pre-wrap text-zinc-600">
+                <div className="font-[family-name:var(--font-geist-mono)] text-[13px] leading-[1.75] whitespace-pre-wrap text-zinc-600 dark:text-zinc-400">
                   {rawOutput || (
                     <div className="flex h-64 flex-col items-center justify-center gap-2">
-                      <svg className="h-6 w-6 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                      <svg className="h-6 w-6 text-zinc-200 dark:text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                       </svg>
-                      <p className="text-[13px] text-zinc-300">
+                      <p className="text-[13px] text-zinc-300 dark:text-zinc-600">
                         Upload an image and click Generate.
                       </p>
                     </div>
@@ -269,10 +269,10 @@ function WorkspaceInner() {
               {tab === "explanation" && parsed && (
                 <div className="animate-fade-in">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-[15px] font-semibold text-zinc-900">Explanation</h2>
+                    <h2 className="text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Explanation</h2>
                     <CopyButton text={parsed.explanation} label="Copy" />
                   </div>
-                  <div className="text-[13px] leading-[1.8] text-zinc-600 whitespace-pre-wrap">
+                  <div className="text-[13px] leading-[1.8] text-zinc-600 dark:text-zinc-400 whitespace-pre-wrap">
                     {parsed.explanation}
                   </div>
                 </div>
@@ -282,10 +282,10 @@ function WorkspaceInner() {
               {tab === "quiz" && parsed && (
                 <div className="animate-fade-in">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-[15px] font-semibold text-zinc-900">Quiz</h2>
+                    <h2 className="text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Quiz</h2>
                     <CopyButton text={parsed.quiz} label="Copy quiz" />
                   </div>
-                  <div className="text-[13px] leading-[1.8] text-zinc-600 whitespace-pre-wrap">
+                  <div className="text-[13px] leading-[1.8] text-zinc-600 dark:text-zinc-400 whitespace-pre-wrap">
                     {parsed.quiz}
                   </div>
                 </div>
@@ -295,7 +295,7 @@ function WorkspaceInner() {
               {tab === "flashcards" && parsed && parsed.flashcards.length > 0 && (
                 <div className="animate-fade-in">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-[15px] font-semibold text-zinc-900">Flashcards</h2>
+                    <h2 className="text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Flashcards</h2>
                     <Button
                       variant="ghost"
                       onClick={() => downloadCSV(parsed.flashcards)}
@@ -310,12 +310,12 @@ function WorkspaceInner() {
                     {parsed.flashcards.map((fc, i) => (
                       <div
                         key={i}
-                        className="rounded-lg border border-zinc-100 bg-zinc-50 p-3"
+                        className="rounded-lg border border-zinc-100 bg-zinc-50 p-3 dark:border-zinc-800 dark:bg-zinc-800/50"
                       >
-                        <p className="text-[12px] font-medium text-zinc-900 mb-1">
+                        <p className="text-[12px] font-medium text-zinc-900 dark:text-zinc-100 mb-1">
                           {fc.front}
                         </p>
-                        <p className="text-[12px] text-zinc-500">
+                        <p className="text-[12px] text-zinc-500 dark:text-zinc-400">
                           {fc.back}
                         </p>
                       </div>
@@ -327,10 +327,10 @@ function WorkspaceInner() {
 
             {/* Raw output disclosure */}
             {done && tab !== "live" && (
-              <div className="shrink-0 border-t border-zinc-100 px-4 py-2">
+              <div className="shrink-0 border-t border-zinc-100 px-4 py-2 dark:border-zinc-800">
                 <button
                   onClick={() => setTab("live")}
-                  className="text-[11px] font-medium text-zinc-400 hover:text-zinc-600 transition-colors"
+                  className="text-[11px] font-medium text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
                 >
                   View raw output &rarr;
                 </button>

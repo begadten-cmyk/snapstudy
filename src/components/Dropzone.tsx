@@ -50,7 +50,7 @@ export function Dropzone({
 
   if (file) {
     return (
-      <div className="flex h-10 items-center gap-2 rounded-lg bg-zinc-50 px-3">
+      <div className="flex h-10 items-center gap-2 rounded-lg bg-zinc-50 px-3 dark:bg-zinc-800">
         <svg
           className="h-3.5 w-3.5 shrink-0 text-zinc-400"
           fill="none"
@@ -64,15 +64,15 @@ export function Dropzone({
             d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25c0 .828.672 1.5 1.5 1.5z"
           />
         </svg>
-        <span className="min-w-0 flex-1 truncate text-[13px] text-zinc-700">
+        <span className="min-w-0 flex-1 truncate text-[13px] text-zinc-700 dark:text-zinc-300">
           {file.name}
         </span>
-        <span className="shrink-0 text-[11px] text-zinc-400">
+        <span className="shrink-0 text-[11px] text-zinc-400 dark:text-zinc-500">
           {fmtSize(file.size)}
         </span>
         <button
           onClick={onRemove}
-          className="ml-0.5 shrink-0 text-zinc-300 hover:text-zinc-500"
+          className="ml-0.5 shrink-0 text-zinc-300 hover:text-zinc-500 dark:text-zinc-600 dark:hover:text-zinc-400"
         >
           <svg
             className="h-3.5 w-3.5"
@@ -103,7 +103,7 @@ export function Dropzone({
       className={`flex h-[72px] cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed transition-colors ${
         dragOver
           ? "border-[#2754C5]/40 bg-[#2754C5]/5 text-[#2754C5]"
-          : "border-zinc-200 text-zinc-400 hover:border-zinc-300 hover:text-zinc-500"
+          : "border-zinc-200 text-zinc-400 hover:border-zinc-300 hover:text-zinc-500 dark:border-zinc-700 dark:text-zinc-500 dark:hover:border-zinc-600 dark:hover:text-zinc-400"
       }`}
     >
       <svg
